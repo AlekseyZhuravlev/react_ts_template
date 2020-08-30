@@ -3,8 +3,8 @@ import {createStore} from "redux";
 import { Provider } from 'react-redux'
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import Main from "./components/Main/Main.js";
-import mainReducer from "./reduxStore";
+import {mainHOC as Main} from "./components/Main/MainHOC.ts";
+import mainReducer from "./reduxStore/index.ts";
 
 import "./App.scss";
 

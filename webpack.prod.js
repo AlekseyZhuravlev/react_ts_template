@@ -9,27 +9,4 @@ module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin({exclude: "index.html"}), // для очистки dict при новой сборки
     ],
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                test: /\.js(\?.*)?$/i,
-                include: /\/src/,
-                extractComments: 'all',
-                uglifyOptions: {
-                    compress: {
-                        arguments: true,
-                        sequences: true,
-                        booleans: true,
-                        loops: true,
-                        unused: true,
-                        warnings: false,
-                        drop_console: true,
-                        unsafe: true,
-                        dead_code: true,
-                        drop_debugger: true,
-                    },
-                },
-            }),
-        ]
-    }
 });
