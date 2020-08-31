@@ -1,12 +1,12 @@
-"@types/jest           -- typescript j
+"@types/jest                    -- typescript j
 "@types/node"          
 "@types/react"
 "@types/react-dom"
 "typescript"
-"classnames"           -- for combining classes
-"lodash"               -- utils
-"luxon"                -- date api
-"prop-types"           -- react
+"classnames"                    -- for combining classes
+"lodash"                        -- utils
+"luxon"                         -- date api
+"prop-types"                    -- react
 "react"                 
 "react-dom
 "react-redux"
@@ -14,5 +14,35 @@
 "react-scripts"
 "redux"
 "redux-thunk"
-"reselect"              -- memoization for redux
-"superagent"            -- http queries api
+"reselect"                      -- memoization for redux
+"superagent"                    -- http queries api
+
+devDependencies:
+"@babel/core"               --webpack compiler
+"@babel/preset-env"
+"@babel/preset-react"
+"@types/react-redux"
+"css-loader"
+"node-sass"                 -- sass
+"react-hot-loader"          -- webpack
+"sass"                      -- sass
+"sass-loader"               -- sass
+"style-loader"              -- webpack
+"uglifyjs-webpack-plugin"   -- webpack compress bundle   
+"lodash-webpack-plugin"     -- webpack
+"webpack"
+"webpack-cli"
+"webpack-dev-server"
+"webpack-merge"
+"html-webpack-plugin"       -- webpack    
+"awesome-typescript-loader" -- webpack ts compiler
+"babel-jest"
+"babel-loader"
+"clean-webpack-plugin"      
+"enzyme"                    -- tests
+"enzyme-adapter-react-16"   -- tests
+"redux-mock-store"          -- tests
+"jest"                      -- tests
+"jest-fetch-mock"           -- tests
+"express"                   -- node stub
+"body-parser"               -- node stub

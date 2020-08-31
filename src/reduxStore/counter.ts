@@ -1,8 +1,9 @@
-import {Action} from "redux";
-import {createReducer} from "typesafe-actions";
-import {DECREMENT_COUNTER, INCREMENT_COUNTER, RESET_COUNTER} from "../constants/reduxActions";
 import {cloneDeep} from "../utils/common";
 import {CounterAction} from "../reduxActions/counter";
+import {createReducer, Reducer} from "typesafe-actions";
+import {CounterEnum} from "../enums/CounterEnum";
+
+const {INCREMENT_COUNTER, DECREMENT_COUNTER, RESET_COUNTER} = CounterEnum;
 
 export interface IStore {
     counter: number,
@@ -29,23 +30,12 @@ const actionResetCounter = (store: IStore, action: CounterAction): IStore => {
     return newStore;
 };
 
-const reducerActions = {
-    [INCREMENT_COUNTER]: actionIncrementCounter,
-    [DECREMENT_COUNTER]: actionDecrementCounter,
-    [RESET_COUNTER]: actionResetCounter,
-};
-
-export default function counterReducer(store:IStore = initialStore, action: CounterAction): IStore {
-    // @ts-ignore
-    const currentAction: CommonAction = reducerActions[action.type];
-    if (currentAction) {
-        // @ts-ignore
-        return currentAction(store, action);
-    }
+const consoleCounter = (store: IStore, action: CounterAction): IStore => {
+    console.log(store);
     return store;
 }
 
-// createReducer<IStore, CounterActions>(initialStore)
-//     .handleType(INCREMENT_COUNTER, actionIncrementCounter)
-//     .handleType(DECREMENT_COUNTER, actionDecrementCounter)
-//     .handleType(RESET_COUNTER, actionResetCounter)
+export const counterReducer: Reducer<IStore, any> = createReducer<IStore>(initialStore)
+    .handleType(INCREMENT_COUNTER, actionIncrementCounter)
+    .handleType(DECREMENT_COUNTER, actionDecrementCounter)
+    .handleType(RESET_COUNTER, actionResetCounter)

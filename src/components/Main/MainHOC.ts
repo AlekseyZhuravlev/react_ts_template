@@ -1,7 +1,8 @@
+// @ts-ignore
 import {connect} from "react-redux";
 import {Main as Component} from "./Main";
 import {RootReducer} from "../../reduxStore";
-import {AnyAction, bindActionCreators, Dispatch} from "redux";
+import {bindActionCreators, Dispatch} from "redux";
 import {CounterAction, decrement, increment, reset} from "../../reduxActions/counter";
 
 type SProps = {
