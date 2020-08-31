@@ -56,6 +56,17 @@ module.exports = {
         // })
     ],
     optimization: {
+        concatenateModules: true,
+        minimize: true,
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    filename: 'dependencies.bundle.js',
+                    chunks: 'all'
+                }
+            },
+        },
         minimizer: [
             new UglifyJsPlugin({
                 test: /\.js(\?.*)?$/i,
