@@ -1,7 +1,7 @@
 import React from 'react';
 
-import "./Main.scss";
-import {mapDispatchToProps, mapStateToProps} from "./MainHOC";
+import "./counter.scss";
+import {mapDispatchToProps, mapStateToProps} from "./CounterHOC";
 
 export interface IProps {
 }
@@ -13,7 +13,7 @@ type Props = ReturnType<typeof mapStateToProps> &
              ReturnType<typeof mapDispatchToProps> &
              IProps;
 
-export class Main extends React.Component<Props, IState> {
+export class Counter extends React.Component<Props, IState> {
 
     state = {
     }

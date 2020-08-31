@@ -1,1 +1,0 @@
-export const cloneDeep = (entity) => JSON.parse(JSON.stringify(entity));

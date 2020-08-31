@@ -3,10 +3,11 @@ import {createStore} from "redux";
 import { Provider } from 'react-redux'
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-import {mainHOC as Main} from "./components/Main/MainHOC.ts";
+import {counterHOC as Counter} from "./components/Counter/CounterHOC.ts";
 import mainReducer from "./reduxStore/index.ts";
 
 import "./App.scss";
+import {MainPage} from "./components/MainPage/MainPage";
 
 const store = createStore(
     mainReducer,
@@ -19,8 +20,9 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
           <BrowserRouter>
+              <MainPage/>
               <Switch>
-                  <Route exac path={"/main"} component={Main}/>
+                  <Route exac path={"/counter"} component={Counter}/>
               </Switch>
           </BrowserRouter>
       </Provider>

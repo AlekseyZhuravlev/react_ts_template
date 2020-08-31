@@ -1,6 +1,6 @@
 // @ts-ignore
 import {connect} from "react-redux";
-import {Main as Component} from "./Main";
+import {Counter as Component} from "./Counter";
 import {RootReducer} from "../../reduxStore";
 import {bindActionCreators, Dispatch} from "redux";
 import {CounterAction, decrement, increment, reset} from "../../reduxActions/counter";
@@ -25,7 +25,7 @@ export const mapDispatchToProps = (dispatch: Dispatch<CounterAction>): DProps =>
     reset,
 }, dispatch);
 
-export const mainHOC = connect(
+export const counterHOC = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Component);

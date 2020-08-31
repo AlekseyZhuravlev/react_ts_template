@@ -3,12 +3,12 @@ import {shallow, mount}  from "enzyme";
 import configureMockStore from 'redux-mock-store'
 import thunk   from 'redux-thunk'
 import fetchMock  from 'jest-fetch-mock';
-import {Main}  from "../../src/components/Main/Main";
+import {Counter}  from "../../src/components/Counter/Counter";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe("Main component", () => {
+describe("Counter component", () => {
 
     let props = {
         increment: jest.fn(),
@@ -22,7 +22,7 @@ describe("Main component", () => {
     });
 
     it('should render', () => {
-        const instance = shallow(<Main />);
+        const instance = shallow(<Counter />);
         console.log(instance.debug());
 
     });
