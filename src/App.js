@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import React from 'react';
 import {createStore} from "redux";
 import { Provider } from 'react-redux'
@@ -6,14 +7,13 @@ import request from "superagent";
 
 import {counterHOC as Counter} from "./components/Counter/CounterHOC.ts";
 import {GlobalError} from "./components/GlobalError/GlobalError";
+import {GlobalLoader} from "./components/GlobalLoader/GlobalLoader";
 import {MainPage} from "./components/MainPage/MainPage";
 
 import mainReducer from "./reduxStore/index.ts";
 import {getHost} from "./utils/commonUtils";
 
 import "./App.scss";
-import ReactDOM from "react-dom";
-import {GlobalLoader} from "./components/GlobalLoader/GlobalLoader";
 
 const store = createStore(
     mainReducer,
@@ -32,9 +32,9 @@ export default class App extends React.Component {
     }
 
     fetchGreetings = () => {
-        request.get("http://127.0.0.1:1414" + "/main")
+        request.get(getHost() + "main")
             .then( response => {
-                console.log(response);
+                console.log(response.text);
             })
     }
 

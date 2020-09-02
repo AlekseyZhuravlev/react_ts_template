@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Row, Col} from "react-bootstrap/esm";
+import {Container, Row, Col} from "react-bootstrap";
 // @ts-ignore
 import {Switch, Route} from "react-router-dom";
 

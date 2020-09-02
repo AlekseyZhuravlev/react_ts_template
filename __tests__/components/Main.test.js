@@ -1,12 +1,12 @@
-import React  from"react";
+import React from "react";
 import {shallow, mount}  from "enzyme";
-import configureMockStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store'
 import thunk   from 'redux-thunk'
 import fetchMock  from 'jest-fetch-mock';
 import {Counter}  from "../../src/components/Counter/Counter";
 
 const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+const mockStore = configureStore(middlewares);
 
 describe("Counter component", () => {
 

@@ -5,21 +5,21 @@ import {RootReducer} from "../../reduxStore";
 import {bindActionCreators, Dispatch} from "redux";
 import {CounterAction, decrement, increment, reset} from "../../reduxActions/counter";
 
-type SProps = {
-    counter: number;
+type StateProps = {
+    counter: number,
 }
 
-type DProps = {
+type DispatchProps = {
     increment: () => void,
     decrement: () => void,
     reset: () => void,
 }
 
-export const mapStateToProps = (state: RootReducer): SProps => ({
+export const mapStateToProps = (state: RootReducer): StateProps => ({
     counter: state.counterReducer.counter
 });
 
-export const mapDispatchToProps = (dispatch: Dispatch<CounterAction>): DProps => bindActionCreators({
+export const mapDispatchToProps = (dispatch: Dispatch<CounterAction>): DispatchProps => bindActionCreators({
     increment,
     decrement,
     reset,

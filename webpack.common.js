@@ -15,12 +15,14 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader',
+                // include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, '__test__')],
                 include: path.resolve(__dirname, 'src'),
             },
             {
                 test: /\.(js|jsx)$/,
                 exclude: "/(node_modules|bower_components)/",
                 include: path.resolve(__dirname, 'src'),
+                // include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, '__test__')],
                 use: {
                     loader: "babel-loader",
                     options: {

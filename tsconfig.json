@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-//    "outDir": "/dist",
     "module": "esnext",
     "target": "es5",
     "lib": [
@@ -12,17 +11,17 @@
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
+    "skipLibCheck": true,
     "moduleResolution": "node",
-//    "rootDir": "/src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true
   },
+  "include": ["__test__", "src"],
   "exclude": [
     "__mocks__",
-    "__test__",
     "docs",
     "stub",
     "node_modules",
