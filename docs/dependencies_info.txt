@@ -34,11 +34,11 @@ devDependencies:
 "webpack-cli"
 "webpack-dev-server"
 "webpack-merge"
-"html-webpack-plugin"       -- webpack    
+"html-webpack-plugin"       -- generate html
 "awesome-typescript-loader" -- webpack ts compiler
 "babel-jest"
 "babel-loader"
-"clean-webpack-plugin"      
+"clean-webpack-plugin"      -- clears folder before compiling
 "enzyme"                    -- tests
 "enzyme-adapter-react-16"   -- tests
 "redux-mock-store"          -- tests
@@ -46,3 +46,4 @@ devDependencies:
 "jest-fetch-mock"           -- tests
 "express"                   -- node stub
 "body-parser"               -- node stub
+webpack-bundle-analyzer     -- localhost:8888 generates visualized bundle map
