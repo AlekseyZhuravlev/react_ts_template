@@ -53,6 +53,7 @@ module.exports = {
     },
     plugins: [
         new LodashModuleReplacementPlugin(),
+        new webpack.optimize.DedupePlugin()
         // new HtmlWebpackPlugin({
         //     template:  path.join(__dirname, "index.html"),
         // })

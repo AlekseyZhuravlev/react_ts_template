@@ -1,11 +1,14 @@
 import React from "react";
+import { Profiler } from "react";
+import { Suspense } from "react";
 import {Container, Row, Col} from "react-bootstrap";
 // @ts-ignore
 import {Switch, Route} from "react-router-dom";
 
-import {counterHOC as Counter} from "../Counter/CounterHOC";
+const Counter = React.lazy(() => import("../Counter/CounterHOC"));
 
 import "./mainPage.scss";
+import ErrorBoundary from "../ErrorBoundary";
 
 export class MainPage extends React.Component<any, any> {
     render() {
@@ -21,10 +24,16 @@ export class MainPage extends React.Component<any, any> {
                     <Row>Breadcrumbs...</Row>
                 </Row>
                 <Row>
-                    <Switch>
-                        {/*<Route exac path={"/table"} component={Table} />*/}
-                        <Route exac path={"/counter"} component={Counter}/>
-                    </Switch>
+                    <Suspense fallback={"...loading"}>
+                        <Switch>
+                            <ErrorBoundary>
+                                <Profiler id={"counter"} onRender={(...settings) => {console.log(settings)}}>
+                                        <Route exac path={"/counter"} component={Counter}/>
+                                </Profiler>
+                            </ErrorBoundary>
+                            {/*<Route exac path={"/table"} component={Table} />*/}
+                        </Switch>
+                    </Suspense>
                 </Row>
             </Container>
         );

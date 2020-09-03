@@ -14,6 +14,15 @@ type Props = ReturnType<typeof mapStateToProps> &
              IProps;
 
 export class Counter extends React.Component<Props, IState> {
+    shouldComponentUpdate(nextProps: Readonly<Props>, nextState: Readonly<IState>, nextContext: any): boolean {
+        return this.props.counter !== nextProps.counter
+    }
+
+    componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<IState>, snapshot?: any) {
+        if (this.props.counter === 3) {
+            throw new Error("it's 3 !");
+        }
+    }
 
     state = {
     }

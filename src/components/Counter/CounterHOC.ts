@@ -25,7 +25,7 @@ export const mapDispatchToProps = (dispatch: Dispatch<CounterAction>): DispatchP
     reset,
 }, dispatch);
 
-export const counterHOC = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Component);

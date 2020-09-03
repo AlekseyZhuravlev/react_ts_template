@@ -6,7 +6,10 @@ const path = require("path");
 module.exports = merge(common, {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.ProgressPlugin()
+        new webpack.ProgressPlugin(),
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify("development")
+        })
     ],
     mode: 'development',
     devtool: 'source-map',
