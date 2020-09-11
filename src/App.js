@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom";
 import React from 'react';
-import {createStore} from "redux";
+import {createStore, applyMiddleware, compose} from "redux";
 import { Provider } from 'react-redux'
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import request from "superagent";
+import thunk from "redux-thunk";
 
-import {counterHOC as Counter} from "./components/Counter/CounterHOC.ts";
 import {GlobalError} from "./components/GlobalError/GlobalError";
 import {GlobalLoader} from "./components/GlobalLoader/GlobalLoader";
 import {MainPage} from "./components/MainPage/MainPage";
@@ -15,10 +15,16 @@ import {getHost} from "./utils/commonUtils";
 
 import "./App.scss";
 
-const store = createStore(
-    mainReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+let DEV_MODE = process.env.NODE_ENV === "development";
+const store = devTools && DEV_MODE ?
+    compose(
+        applyMiddleware(thunk),
+        devTools
+    )(createStore)(mainReducer, {}) :
+    applyMiddleware(thunk)(createStore)(mainReducer, {});
+
+// const store = createStore(mainReducer, applyMiddleware(thunk));
 
 export default class App extends React.Component {
 
@@ -27,7 +33,6 @@ export default class App extends React.Component {
     }
 
     componentDidCatch(error, errorInfo) {
-
         this.renderErrorPage(error);
     }
 

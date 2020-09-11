@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/main", mainRouter);
-app.use("/table", tableRouter)
+app.use("/tableData", tableRouter)
 
 app.use(bodyParser.json())
     .listen(1414, () => {

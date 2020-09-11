@@ -28,6 +28,9 @@ export class Counter extends React.Component<Props, IState> {
     }
 
     render() {
+        const example = {a: {b: {c: "done"}}}
+        console.log(example)
+
         const { increment, decrement, reset, counter } = this.props;
         return (
             <div className="main__container">

@@ -3,12 +3,14 @@ class TableDto {
     private _name: string;
     private _age: number;
     private _email: string;
+    private _country: string;
 
-    constructor(id: number, name: string, age: number, email: string) {
+    constructor(id: number, name: string, age: number, email: string, country: string) {
         this._id = id;
         this._name = name;
         this._age = age;
         this._email = email;
+        this._country = country;
     }
 
     get id(): number {
@@ -41,5 +43,14 @@ class TableDto {
 
     set email(value: string) {
         this._email = value;
+    }
+
+
+    get country(): string {
+        return this._country;
+    }
+
+    set country(value: string) {
+        this._country = value;
     }
 }

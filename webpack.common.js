@@ -51,7 +51,6 @@ module.exports = {
     },
     plugins: [
         new LodashModuleReplacementPlugin(),
-        // new webpack.optimize.DedupePlugin()
     ],
     optimization: {
         concatenateModules: true,

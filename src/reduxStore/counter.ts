@@ -38,4 +38,4 @@ const consoleCounter = (store: IStore, action: CounterAction): IStore => {
 export const counterReducer: Reducer<IStore, any> = createReducer<IStore>(initialStore)
     .handleType(INCREMENT_COUNTER, actionIncrementCounter)
     .handleType(DECREMENT_COUNTER, actionDecrementCounter)
-    .handleType(RESET_COUNTER, actionResetCounter)
+    .handleType(RESET_COUNTER, actionResetCounter);
