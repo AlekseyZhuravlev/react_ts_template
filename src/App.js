@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import {BrowserRouter} from "react-router-dom";
 import request from "superagent";
 import thunk from "redux-thunk";
+import {BreadcrumbsProvider} from "react-breadcrumbs-dynamic";
 
 import {GlobalError} from "./components/GlobalError/GlobalError";
 import {GlobalLoader} from "./components/GlobalLoader/GlobalLoader";
@@ -53,13 +54,15 @@ export default class App extends React.Component {
 
     render() {
     return (
-      <Provider store={store}>
-          <BrowserRouter>
-              <React.Suspense fallback={<GlobalLoader/>}>
-                  <MainPage />
-              </React.Suspense>
-          </BrowserRouter>
-      </Provider>
+        <Provider store={store}>
+            <BrowserRouter>
+                <BreadcrumbsProvider>
+                      <React.Suspense fallback={<GlobalLoader/>}>
+                          <MainPage />
+                      </React.Suspense>
+                  </BreadcrumbsProvider>
+            </BrowserRouter>
+        </Provider>
     );
   }
 };

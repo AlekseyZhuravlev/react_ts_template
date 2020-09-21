@@ -2,6 +2,8 @@ import React from 'react';
 
 import "./counter.scss";
 import {mapDispatchToProps, mapStateToProps} from "./CounterHOC";
+import {BreadcrumbsItem} from "react-breadcrumbs-dynamic";
+import {Row} from "react-bootstrap";
 
 export interface IProps {
 }
@@ -33,16 +35,21 @@ export class Counter extends React.Component<Props, IState> {
 
         const { increment, decrement, reset, counter } = this.props;
         return (
-            <div className="main__container">
-                <div className="main__counter-wrapper">
-                    <nav>
-                        <button id="increment-counter" onClick={() => increment()}>increment</button>
-                        <button id="decrement-counter" onClick={() => decrement()}>decrement</button>
-                        <button id="reset-counter" onClick={() => reset()}>reset</button>
-                    </nav>
-                    <div className="main__counter-element">{counter}</div>
+            <Row>
+                <BreadcrumbsItem to={'/counter'}>
+                    counter
+                </BreadcrumbsItem>
+                <div className="main__container">
+                    <div className="main__counter-wrapper">
+                        <nav>
+                            <button id="increment-counter" onClick={() => increment()}>increment</button>
+                            <button id="decrement-counter" onClick={() => decrement()}>decrement</button>
+                            <button id="reset-counter" onClick={() => reset()}>reset</button>
+                        </nav>
+                        <div className="main__counter-element">{counter}</div>
+                    </div>
                 </div>
-            </div>
+            </Row>
         );
     }
 }

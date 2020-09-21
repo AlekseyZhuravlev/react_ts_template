@@ -12,7 +12,7 @@ export type StateProps = {
 }
 
 export type DispatchProps = {
-    getTableData: any,
+    getTableData: () => void,
 }
 
 export const mapStateToProps = (state: RootReducer):StateProps => ({
@@ -20,7 +20,7 @@ export const mapStateToProps = (state: RootReducer):StateProps => ({
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch<TableAction>):DispatchProps => bindActionCreators({
-    getTableData: TableController.get,
+    getTableData: TableController.getTableData,
 }, dispatch);
 
 

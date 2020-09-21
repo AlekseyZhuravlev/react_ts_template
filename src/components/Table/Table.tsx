@@ -1,6 +1,7 @@
 import React from "react";
 import {Button, Col, Row} from "react-bootstrap";
 import {mapDispatchToProps, mapStateToProps} from "./TableHOC";
+import {BreadcrumbsItem} from "react-breadcrumbs-dynamic";
 
 
 interface IProps {
@@ -29,7 +30,10 @@ export class Table extends React.Component<Props, IState> {
 
     render() {
         return (
-            <>
+            <Row>
+                <BreadcrumbsItem to={'/table'}>
+                    Table
+                </BreadcrumbsItem>
                 <Row>
                     <Col>
                         <Button
@@ -43,7 +47,7 @@ export class Table extends React.Component<Props, IState> {
 
                     </div>
                 </Row>
-            </>
+            </Row>
         );
     }
 }
