@@ -5,10 +5,11 @@ import {Container, Row, Col, Breadcrumb as BreadcrumbContainer, Navbar} from "re
 import {Breadcrumbs, BreadcrumbsItem} from 'react-breadcrumbs-dynamic'
 // @ts-ignore
 import {Switch, Route} from "react-router-dom";
+import {isEqual} from "lodash";
 
 const Counter = React.lazy(() => import("../Counter/CounterHOC"));
 const Table = React.lazy(() => import("../Table/TableHOC"));
-const BreadcrumbItem = React.lazy(() => import("../NavItem/NavItem"));
+const NavItem = React.lazy(() => import("../NavItem/NavItem"));
 
 import "./mainPage.scss";
 import ErrorBoundary from "../ErrorBoundary";
@@ -19,10 +20,20 @@ export class MainPage extends React.Component<any, any> {
 
     state = {
         menuList: [
-            { value: "/main",       label: "Главная страница" },
             { value: "/table",      label: "Таблица" },
             { value: "/counter",    label: "Счетчик" },
         ] as Dictionary[]
+    }
+
+    shouldComponentUpdate(nextProps: Readonly<any>, nextState: Readonly<any>, nextContext: any): boolean {
+       return this.checkUpdate(nextState);
+    }
+
+    checkUpdate = (nextState: any):boolean => {
+        if (nextState.menuList !== null && isEqual(this.state.menuList, nextState.menuList)) {
+            return false;
+        }
+        return true;
     }
 
     render() {
@@ -36,7 +47,7 @@ export class MainPage extends React.Component<any, any> {
                         Main
                     </BreadcrumbsItem>
                     <Breadcrumbs
-                        item={BreadcrumbItem}
+                        item={NavItem}
                         finalProps={{active: true}}
                         container={BreadcrumbContainer}
                         duplicateProps={{to: 'href'}}

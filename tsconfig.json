@@ -23,6 +23,7 @@
   "exclude": [
     "__mocks__",
     "docs",
+    "dist",
     "stub",
     "node_modules",
     "build",

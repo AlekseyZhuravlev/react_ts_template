@@ -1,9 +1,10 @@
 import React from 'react';
+import {BreadcrumbsItem} from "react-breadcrumbs-dynamic";
+import {Row, Button, Modal} from "react-bootstrap";
+import { confirmAlert } from 'react-confirm-alert';
 
 import "./counter.scss";
 import {mapDispatchToProps, mapStateToProps} from "./CounterHOC";
-import {BreadcrumbsItem} from "react-breadcrumbs-dynamic";
-import {Row} from "react-bootstrap";
 
 export interface IProps {
 }
@@ -29,6 +30,23 @@ export class Counter extends React.Component<Props, IState> {
     state = {
     }
 
+    onClickReset = ():void => {
+        confirmAlert({
+            title: 'Confirm to reset counter',
+            message: 'Do you really want to reset counter!?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => this.props.reset()
+                },
+                {
+                    label: 'No',
+                    onClick: () => null
+                }
+            ]
+        });
+    }
+
     render() {
         const example = {a: {b: {c: "done"}}}
         console.log(example)
@@ -44,7 +62,7 @@ export class Counter extends React.Component<Props, IState> {
                         <nav>
                             <button id="increment-counter" onClick={() => increment()}>increment</button>
                             <button id="decrement-counter" onClick={() => decrement()}>decrement</button>
-                            <button id="reset-counter" onClick={() => reset()}>reset</button>
+                            <button id="reset-counter" onClick={this.onClickReset}>reset</button>
                         </nav>
                         <div className="main__counter-element">{counter}</div>
                     </div>

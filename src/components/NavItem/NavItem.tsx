@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 // @ts-ignore
-import { Breadcrumb } from 'react-bootstrap'
+import { Breadcrumb, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 interface BreadcrumbItemProps {
@@ -13,7 +13,7 @@ const NavItem = ({to, children, ...props}:BreadcrumbItemProps) => {
     return (
         <LinkContainer to={to || "/main"}>
             <Breadcrumb.Item href={to} {...props}>
-                {<span>{children}</span>}
+                    {<span>{children}</span>}
             </Breadcrumb.Item>
         </LinkContainer>
     )
